@@ -1,0 +1,20 @@
+apiVersion: v1 # is the version of the resource
+kind: Pod # is the kind of resource
+metadata: # is the metadata of the resource, like the name, namespace, labels, etc.
+  name: nginx-pod
+  labels:
+    app: nginx
+
+spec: # is the specification of the resource, like the containers, volumes, etc.
+  containers: # is the containers of the resource
+  - name: nginx
+    image: nginx:latest
+    ports:
+    - containerPort: 80
+    resources:
+      limits:
+        cpu: "0.5"
+        memory: "256Mi"
+      requests:
+        cpu: "0.25"
+        memory: "128Mi"
