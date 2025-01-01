@@ -1,0 +1,1 @@
+[Fast Terraform - repo](https://github.com/omerbsezer/Fast-Terraform)
