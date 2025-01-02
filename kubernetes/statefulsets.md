@@ -62,6 +62,7 @@ spec:
 ```
 
 This configuration ensures that:
+
 - Each Pod gets its own storage volume
 - Storage persists across Pod rescheduling
 - Volumes are retained even when Pods are deleted
@@ -85,6 +86,7 @@ spec:
 ```
 
 This creates DNS entries in the format:
+
 - database-cluster-0.database-service.default.svc.cluster.local
 - database-cluster-1.database-service.default.svc.cluster.local
 - database-cluster-2.database-service.default.svc.cluster.local
@@ -241,6 +243,7 @@ spec:
 ### Common Issues and Solutions
 
 1. **Pod Scheduling Issues**
+
    ```bash
    # Check Pod events
    kubectl describe pod mysql-cluster-0
@@ -250,6 +253,7 @@ spec:
    ```
 
 2. **Network Connectivity**
+
    ```bash
    # Test DNS resolution
    kubectl run -it --rm --image=busybox:1.28 dns-test --restart=Never \
@@ -257,6 +261,7 @@ spec:
    ```
 
 3. **Storage Problems**
+
    ```bash
    # Check storage status
    kubectl get pv,pvc
@@ -307,6 +312,7 @@ securityContext:
 StatefulSets represent a powerful tool in the Kubernetes ecosystem for managing stateful applications. Their ability to maintain stable network identities, manage ordered deployment and scaling, and handle persistent storage makes them indispensable for databases, message queues, and other stateful workloads. When properly configured and maintained, they provide a robust foundation for running complex stateful applications in a containerized environment.
 
 Remember to:
+
 - Always use appropriate storage classes
 - Implement proper backup strategies
 - Monitor performance and health
