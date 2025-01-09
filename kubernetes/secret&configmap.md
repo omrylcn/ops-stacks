@@ -13,6 +13,7 @@ ConfigMaps are designed to store non-sensitive configuration data in key-value p
 You can create ConfigMaps in several ways. Let's explore each method:
 
 1. From literal values:
+
 ```bash
 kubectl create configmap app-config \
     --from-literal=APP_COLOR=blue \
@@ -20,6 +21,7 @@ kubectl create configmap app-config \
 ```
 
 2. From a file:
+
 ```bash
 # config.properties
 database.url=localhost:3306
@@ -30,6 +32,7 @@ kubectl create configmap app-config --from-file=config.properties
 ```
 
 3. Using YAML definition:
+
 ```yaml
 apiVersion: v1
 kind: ConfigMap
@@ -48,6 +51,7 @@ data:
 There are multiple ways to consume ConfigMaps in your pods:
 
 1. As environment variables:
+
 ```yaml
 apiVersion: v1
 kind: Pod
@@ -66,6 +70,7 @@ spec:
 ```
 
 2. As configuration files:
+
 ```yaml
 apiVersion: v1
 kind: Pod
@@ -93,6 +98,7 @@ Secrets are similar to ConfigMaps but are specifically designed for confidential
 Let's explore different ways to create Secrets:
 
 1. From literal values:
+
 ```bash
 kubectl create secret generic db-secret \
     --from-literal=DB_PASSWORD=mysecretpassword \
@@ -100,6 +106,7 @@ kubectl create secret generic db-secret \
 ```
 
 2. From files:
+
 ```bash
 # Create files containing your secrets
 echo -n 'mysecretpassword' > password.txt
@@ -112,6 +119,7 @@ kubectl create secret generic db-secret \
 ```
 
 3. Using YAML definition:
+
 ```yaml
 apiVersion: v1
 kind: Secret
@@ -129,6 +137,7 @@ data:
 Secrets can be consumed in pods similarly to ConfigMaps:
 
 1. As environment variables:
+
 ```yaml
 apiVersion: v1
 kind: Pod
@@ -147,6 +156,7 @@ spec:
 ```
 
 2. As mounted files:
+
 ```yaml
 apiVersion: v1
 kind: Pod

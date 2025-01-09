@@ -5,6 +5,7 @@
 A Pod is the smallest deployable unit in Kubernetes that represents a single instance of a running process in a cluster.
 
 ### Key Concepts
+
 - **Pod**: A group of one or more containers sharing storage, network, and namespace
 - **Pod ID**: Unique identifier assigned by Kubernetes
 - **Pod IP**: Unique IP address within the cluster network
@@ -44,14 +45,17 @@ A Pod is the smallest deployable unit in Kubernetes that represents a single ins
 ## Container States
 
 ### Waiting
+
 - Container waiting for another operation
 - Common reasons: pulling image, starting dependencies
 
 ### Running
+
 - Container executing without issues
 - Process started and running
 
 ### Terminated
+
 - Container completed execution
 - Process exited or failed
 
@@ -72,12 +76,14 @@ A Pod is the smallest deployable unit in Kubernetes that represents a single ins
    - Example: Metric exporters for monitoring
 
 ### Shared Resources
+
 - Network namespace (localhost)
 - Storage volumes
 - IPC namespace
 - PID namespace (optional)
 
 ### Configuration Options
+
 - Individual resource limits/requests
 - Separate security contexts
 - Different probe configurations
@@ -89,11 +95,13 @@ A Pod is the smallest deployable unit in Kubernetes that represents a single ins
 ## Init Containers
 
 ### Purpose
+
 - Perform initialization tasks
 - Run sequentially before app containers
 - Must complete successfully for pod to start
 
 ### Common Use Cases
+
 1. Schema setup and migrations
 2. Configuration templating
 3. Service dependency checks
@@ -101,6 +109,7 @@ A Pod is the smallest deployable unit in Kubernetes that represents a single ins
 5. Data download and preparation
 
 ### Key Features
+
 - Always run to completion
 - Each must complete before next starts
 - Failures cause pod restart
@@ -177,24 +186,28 @@ kubectl get pod pod-name -o yaml
 ## Best Practices
 
 ### Security
+
 1. Use non-root users in containers
 2. Enable read-only root filesystem
 3. Set security contexts appropriately
 4. Use network policies to restrict traffic
 
 ### Resource Management
+
 1. Set appropriate resource requests/limits
 2. Use horizontal pod autoscaling
 3. Configure pod disruption budgets
 4. Implement proper pod affinity/anti-affinity
 
 ### Monitoring
+
 1. Configure appropriate probes
 2. Set up logging properly
 3. Monitor pod metrics
 4. Use pod topology spread constraints
 
 ### High Availability
+
 1. Use pod anti-affinity for spread
 2. Implement proper readiness/liveness probes
 3. Set appropriate restart policies
@@ -203,26 +216,31 @@ kubectl get pod pod-name -o yaml
 ## Common Issues and Solutions
 
 ### ImagePullBackOff
+
 - Verify image name and tag
 - Check registry credentials
 - Ensure network connectivity
 
 ### CrashLoopBackOff
+
 - Check container logs
 - Verify command and args
 - Check resource constraints
 
 ### Pending State
+
 - Check node resources
 - Verify node selectors
 - Check PVC availability
 
 ### OOMKilled
+
 - Increase memory limits
 - Check memory leaks
 - Monitor memory usage
 
 ## References
+
 - [Kubernetes Pods Documentation](https://kubernetes.io/docs/concepts/workloads/pods/)
 - [Pod Lifecycle Guide](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/)
 - [Multi-Container Pods](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes)
